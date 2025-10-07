@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>documento de cine</title>
+</head>
+
+<body>
+  <header class="header-class">
+    <h1>CINEPOLIS</h1>  
+    <div class="search-class"><button>search</button><input type="text"></div>  
+  </header>
+  <main>
+    <h1>Cartelera de hoy</h1>
+    <div id="peliculas">
+      <article class="card" data-id="s1" aria-pressed="false"
+data-title="La Gran Aventura" data-genre="Acción" data-year="2024">
+        <img width="500px"
+          src=https://m.media-amazon.com/images/S/pv-target-images/b168a2ae084d2d1c05594923d215a89f8425678540153d7036432156763b50dd.jpg
+          alt="Póster de Jack El Destripador" />
+        <h2 class="card-title">Jack El Destripador</h2>
+        <p class="card-meta">Acción Terror Misterio · 1h 58m</p>
+        <button class="fav-btn" data-id="s1" aria-label="Agregar La Gran Aventura a favoritos"><span class="heart">♡</span></button>
+      </article>
+
+      <article class="card" data-id="s2" aria-pressed="false"
+data-title="La Gran Aventura" data-genre="Acción" data-year="2024">
+        <img width="500px"
+          src=https://m.media-amazon.com/images/S/pv-target-images/b168a2ae084d2d1c05594923d215a89f8425678540153d7036432156763b50dd.jpg
+          alt="Póster de Jack El Destripador" />
+        <h2 class="card-title">Jack El Destripador</h2>
+        <p class="card-meta">Acción Terror Misterio · 1h 58m</p>
+        <button class="fav-btn" data-id="s2" aria-label="Agregar La Gran Aventura a favoritos"><span class="heart">♡</span></button>
+      </article>
+    </div>
+  </main>
+  <footer>2025</footer>
+
+</body> 
+<script> 
+const favoritoId = new Set()
+const peliculasEl = document.querySelector("#peliculas")
+console.log("peliculasEl",peliculasEl)
+peliculasEl.addEventListener("click",(action)=>{
+  const btn=action.target.closest(".fav-btn")
+  if(!btn)return
+
+  const id=btn.dataset.id
+  console.log("id",id)
+  console.log("favoritoid",favoritoId)
+  const isFav=favoritoId.has(id)
+  if (isFav) favoriteIds.delete(id); else favoriteIds.add(id);
+  btn.setAttribute('aria-pressed', String(!isFav));
+    btn.classList.toggle('is-fav', !isFav);
+    const heart = btn.querySelector('.heart');
+    if (heart) heart.textContent = !isFav ? "♥" : "♡";
+    
+})
+</script>
+</html>
